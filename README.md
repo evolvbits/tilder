@@ -13,24 +13,22 @@
   <img src=".github/logo/tilder.svg" alt="tilder" width="180"/>
 </p>
 
-<h1 align="center">A declarative home-state manager for your `$HOME`.</h1>
+<h1 align="center">Declare your home.</h1>
 
 [![CI](https://github.com/evolvbits/tilder/actions/workflows/ci.yml/badge.svg)](https://github.com/evolvbits/tilder/actions/workflows/ci.yml) [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/evolvbits/tilder/releases)
 ![Rust](https://img.shields.io/badge/Rust-built-orange)
 
 ## Introduction
 
-**A declarative home-state manager for your `$HOME`.**
+**A declarative home-state manager for your `$HOME`. Manage and synchronize everything in your `$HOME`.**
 
-Manage and synchronize everything in your `$HOME`.
+`Tilder` lets you describe the desired state of everything inside your home directory and makes your system converge to it.
 
-`tilder` lets you describe the desired state of everything inside your home directory and makes your system converge to it.
+Instead of manually copying dotfiles, syncing folders, or remembering how your environment was set up, you declare how your `$HOME` should be, and `Tilder` takes care of enforcing that state.
 
-Instead of manually copying dotfiles, syncing folders, or remembering how your environment was set up, you declare how your `$HOME` should be, and `tilder` takes care of enforcing that state.
+This goes beyond traditional dotfile managers. `Tilder` is designed to treat your home directory as a **reproducible, synchronized, declarative environment**.
 
-This goes beyond traditional dotfile managers. `tilder` is designed to treat your home directory as a **reproducible, synchronized, declarative environment**.
-
-With `tilder`, you can:
+With `Tilder`, you can:
 
 - Define the structure and contents of your `$HOME`
 - Keep configurations, files, and directories in sync across machines
@@ -38,7 +36,7 @@ With `tilder`, you can:
 - Eliminate configuration drift
 - Manage more than dotfiles — manage your **home state**
 
-`tilder` turns your `$HOME` into something predictable, portable, and reproducible.
+`Tilder` turns your `$HOME` into something predictable, portable, and reproducible.
 
 ## About this repository
 
