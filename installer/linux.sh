@@ -40,6 +40,14 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+# ----- OS check -----
+OS_TYPE=$(uname -s)
+if [ "$OS_TYPE" != "Linux" ]; then
+  error "Error: This script is only supported on Linux."
+  info "Detected OS: " "$OS_TYPE\n"
+  exit 1
+fi
+
 # ----- Required check -----
 for bin in "${REQUIRED[@]}"; do
   if ! command -v "$bin" >/dev/null 2>&1; then
