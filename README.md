@@ -20,7 +20,7 @@
 
 ## Introduction
 
-**A declarative home-state manager for your `$HOME`. Manage and synchronize everything in your `$HOME`.**
+***Manage and synchronize everything in your `$HOME`. A declarative home-state manager for your `$HOME`.***
 
 `Tilder` lets you describe the desired state of everything inside your home directory and makes your system converge to it.
 
