@@ -1,0 +1,8 @@
+# Custom Dictionary Words
+tilder
+canin
+williamcanin
+evolv
+evolvbits
+keyserver
+openpgp

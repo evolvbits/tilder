@@ -1,0 +1,10 @@
+# Treat everything as binary by default
+* -text -diff
+
+# Allow markdown to be treated as text (README, LICENSE, docs)
+*.md text eol=lf
+LICENSE text eol=lf
+*.txt text eol=lf
+
+# Prevent GitHub Linguist from trying to detect languages
+* linguist-vendored

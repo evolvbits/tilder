@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Created with Inkscape (http://www.inkscape.org/)
+  © 2026 William C. Canin
+  This artwork is protected by copyright.
+  Unauthorized use, copying, or modification is prohibited.
+-->
+
+<svg
+   width="270mm"
+   height="270mm"
+   viewBox="0 0 270 270"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="tilder.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"><title
+     id="title1">tilder</title><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.17817059"
+     inkscape:cx="196.44096"
+     inkscape:cy="-230.11655"
+     inkscape:window-width="1071"
+     inkscape:window-height="991"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1"><linearGradient
+       id="linearGradient24"
+       inkscape:collect="always"><stop
+         style="stop-color:#35b56e;stop-opacity:1;"
+         offset="0"
+         id="stop24" /><stop
+         style="stop-color:#b6ef56;stop-opacity:1;"
+         offset="1"
+         id="stop25" /></linearGradient><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24"
+       id="linearGradient25"
+       x1="139.93321"
+       y1="179.32922"
+       x2="141.03079"
+       y2="15.236699"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.91920623,0,0,0.91920623,9.1979232,-11.113647)" /></defs><g
+     inkscape:label="tilder"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="fill:#1f1f1f;fill-opacity:1"><g
+       id="g1"><path
+         d="m 138.17015,6.0653848 c -3.38984,-0.1346272 -7.00277,0.81085 -11.05546,3.2386291 0,0 -48.230539,28.8927591 -72.345904,43.3392431 -5.737518,3.437096 -9.764842,8.905509 -9.764842,16.908562 v 79.003221 c 0,6.72949 1.584559,12.92778 10.107326,18.10561 l 63.47409,38.56201 c 1.03762,0.63043 2.54501,0.60472 3.77541,0.0627 1.23041,-0.54202 2.13661,-1.54452 2.13661,-2.81159 -0.11488,-38.77827 -0.23233,-69.13045 -0.0769,-106.882206 -5.06017,-2.209253 -9.81137,-4.016841 -14.28411,-4.582442 -7.1263,-0.901172 -13.545614,1.254303 -19.680278,10.019908 -0.729966,1.04302 -1.722205,1.84376 -2.869074,2.19029 -1.146873,0.34652 -2.444611,0.21946 -3.692751,-0.54957 -3.369086,-2.07585 -6.706863,-4.314171 -9.61569,-7.043035 -1.40152,-1.314801 -1.829557,-2.928016 -1.637368,-4.527815 0.192188,-1.599798 0.965941,-3.19758 1.920951,-4.653235 8.242557,-12.563516 17.992158,-18.420036 28.88507,-19.534914 1.3616,-0.139361 2.74021,-0.205452 4.13594,-0.201886 9.77001,0.025 20.36394,3.450067 31.61259,8.853298 11.86614,5.699839 20.22242,6.651725 26.47532,4.996661 6.25289,-1.655059 10.46219,-5.927192 14.00717,-10.849301 0.96758,-1.343439 2.06633,-1.819469 3.07192,-1.773692 1.00559,0.04577 1.87815,0.557857 2.55651,0.996575 3.49161,2.258133 6.61632,5.0078 9.77387,7.64628 1.41263,1.180392 2.14216,2.621249 2.23685,4.095095 0.0948,1.47385 -0.43689,2.962854 -1.45781,4.26752 -5.85155,7.477864 -12.49485,15.096919 -22.14511,18.888429 -6.58417,2.58686 -14.54885,3.37395 -24.5634,1.1438 -0.31776,33.11767 -0.0167,61.31184 -0.0167,96.47516 0,1.33977 1.12903,2.73705 2.60687,3.5854 1.47783,0.84837 3.2308,1.10474 4.33591,0.43273 21.53593,-13.09543 42.94224,-26.41019 64.49489,-39.4883 3.69116,-2.23979 5.95718,-5.38652 7.30904,-9.31216 1.35186,-3.92561 1.77244,-8.63162 1.72334,-13.91028 l -0.68212,-73.369567 c -0.0347,-3.732079 -0.54617,-6.923959 -2.20643,-9.890714 -1.66026,-2.966749 -4.48409,-5.729744 -9.21382,-8.558308 L 147.88654,9.3040139 c -3.15872,-1.8890322 -6.32612,-3.1038102 -9.71593,-3.2386291 z"
+         style="baseline-shift:baseline;display:inline;overflow:visible;fill:url(#linearGradient25);fill-opacity:1;stroke:none;stroke-width:3.67683;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1;enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         id="path24"
+         inkscape:label="logo" /><text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:53.0291px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';writing-mode:lr-tb;direction:ltr;opacity:0.990863;fill:#ffffff;fill-opacity:1;stroke:#232323;stroke-width:1.25266;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+         x="69.783501"
+         y="262.47839"
+         id="text25"
+         inkscape:label="text"><tspan
+           sodipodi:role="line"
+           id="tspan25"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;fill:#ffffff;stroke:#232323;stroke-width:1.25266;stroke-dasharray:none;stroke-opacity:1"
+           x="69.783501"
+           y="262.47839">Tilder</tspan></text><text
+         xml:space="preserve"
+         style="font-size:4.93889px;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;writing-mode:lr-tb;direction:ltr;opacity:0.990863;fill:#ffffff;stroke:#232323;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1"
+         x="205.82971"
+         y="233.22086"
+         id="text1"
+         inkscape:label="copyright-symbol"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="font-size:4.93889px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:1"
+           x="205.82971"
+           y="233.22086">©</tspan></text></g></g><metadata
+     id="metadata1"><rdf:RDF><cc:Work
+         rdf:about=""><dc:creator><cc:Agent><dc:title>William C. Canin</dc:title></cc:Agent></dc:creator><dc:rights><cc:Agent><dc:title>© 2026 William C. Canin. Unauthorized use prohibited.</dc:title></cc:Agent></dc:rights><dc:publisher><cc:Agent><dc:title>William C. Canin</dc:title></cc:Agent></dc:publisher><dc:title>tilder</dc:title></cc:Work></rdf:RDF></metadata></svg>
