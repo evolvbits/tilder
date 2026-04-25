@@ -48,6 +48,13 @@ if [ "$OS_TYPE" != "Linux" ]; then
   exit 1
 fi
 
+# ----- ARCH Check -----
+CURRENT_ARCH=$(uname -m)
+if [ "$CURRENT_ARCH" != "x86_64" ]; then
+  error "Error: This binary is only for x86_64 architecture."
+  exit 1
+fi
+
 # ----- Required check -----
 for bin in "${REQUIRED[@]}"; do
   if ! command -v "$bin" >/dev/null 2>&1; then
