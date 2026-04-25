@@ -5,10 +5,10 @@
 
 set -euo pipefail
 
-NAME="roost"
-REPO="evolvbits/roost"
+NAME="tilder"
+REPO="evolvbits/tilder"
 API_URL="https://api.github.com/repos/${REPO}/releases/latest"
-BINARY_NAME="roost"
+BINARY_NAME="tilder"
 ARCH="x86_64"
 INSTALLATION_DIR="$HOME/.local/bin"
 REQUIRED=("curl" "wget")
