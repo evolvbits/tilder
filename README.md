@@ -15,7 +15,7 @@
 
 <h1 align="center">Declare your home.</h1>
 
-[![CI](https://github.com/evolvbits/tilder/actions/workflows/ci.yml/badge.svg)](https://github.com/evolvbits/tilder/actions/workflows/ci.yml) [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/evolvbits/tilder/releases)
+[![CI](https://github.com/evolvbits/tilder/actions/workflows/ci.yml/badge.svg)](https://github.com/evolvbits/tilder/actions/workflows/ci.yml) [![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/evolvbits/tilder/releases)
 ![Rust](https://img.shields.io/badge/Rust-built-orange)
 
 ## Introduction
