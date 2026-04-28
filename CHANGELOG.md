@@ -9,3 +9,7 @@ All notable milestones of this project will be documented in this file.
 - Update logo SVG
 - Adding section to verify OS Linux
 - Adding section to verify ARCH
+- Remove unused file
+- Remove old LICENSE file and replace with LICENSE.md
+- Update Custom Dictionary Words
+- Removing whitespace
