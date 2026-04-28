@@ -1,6 +1,4 @@
-
 #!/usr/bin/env bash
-
 # Author: William C. Canin <https://williamcanin.github.io>
 
 set -euo pipefail
