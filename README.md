@@ -75,3 +75,5 @@ See [SECURITY.md](SECURITY.md) for full verification instructions.
 ---
 
 © [Evolvbits](https://evolvbits.github.io) - All rights reserved.
+
+<!-- "Tilder is source-available under the Elastic License 2.0. You may use, modify and contribute freely, but you may not sell or redistribute Tilder as a product or service." -->
