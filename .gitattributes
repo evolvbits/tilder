@@ -1,10 +1,21 @@
-# Treat everything as binary by default
-* -text -diff
+# Forces all text files in the repository to use LF.
+* text=auto eol=lf
 
-# Allow markdown to be treated as text (README, LICENSE, docs)
-*.md text eol=lf
-LICENSE text eol=lf
-*.txt text eol=lf
+# Ignore docs and editor config
+docs/** linguist-vendored
+.vscode/** linguist-vendored
 
-# Prevent GitHub Linguist from trying to detect languages
-* linguist-vendored
+# Ignore front-end / misc
+*.html linguist-vendored
+*.js linguist-vendored
+*.sh linguist-vendored
+
+# Tell Linguist what IS the project
+src/** linguist-detectable
+crates/** linguist-detectable
+
+# Rust Force as the main
+*.rs linguist-detectable
+
+# Extra guarantee
+*.rs linguist-language=Rust
