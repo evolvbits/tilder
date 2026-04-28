@@ -15,7 +15,7 @@
 
 <h1 align="center">Declare your home.</h1>
 
-[![CI](https://github.com/evolvbits/tilder/actions/workflows/ci.yml/badge.svg)](https://github.com/evolvbits/tilder/actions/workflows/ci.yml) [![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/evolvbits/tilder/releases)
+[![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/evolvbits/tilder/releases)
 ![Rust](https://img.shields.io/badge/Rust-built-orange)
 
 ## Introduction
@@ -70,6 +70,8 @@ See [SECURITY.md](SECURITY.md) for full verification instructions.
 ## Community
 
 - [Contributing](CONTRIBUTING.md)
+- [Development](DEVELOPMENT.md)
+- [License Third-Party](LICENSE-THIRD-PARTY.md)
 - [License](LICENSE)
 
 ---
