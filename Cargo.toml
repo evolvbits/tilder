@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = ["crates/*", "tilder"]
+
+# git-cliff to CHANGELOG.md
+[workspace.metadata.bin]
+git-cliff = { version = "2.12.0" }
+
+[workspace.package]
+description = "Declare your home."
+repository = "https://github.com/evolvbits/tilder"
+version = "0.1.0"
+authors = ["William <https://williamcanin.github.io>"]
+edition = "2024"
+rust-version = "1.94.1"
+
+[workspace.metadata]
+site = "https://evolvbits.github.io/products/tilder/"
+copyright = "© 2026 EvolvBits. All rights reserved."
+maintainer = "EvolvBits"
+
+[workspace.dependencies]
+tilder-core = { path = "crates/tilder-core" }
+clap = { version = "=4.5.4", features = ["derive"] }
+anyhow = "1.0.101"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+console = "0.16.2"
+
+# -------- Optimization --------
+[profile.dev.package."*"]
+opt-level = 0
+incremental = true
+debug = true
+
+[profile.release.package."*"]
+opt-level = 3
+codegen-units = 1
+debug = false

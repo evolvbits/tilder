@@ -1,0 +1,21 @@
+[package]
+name = "tilder"
+version.workspace = true
+description.workspace = true
+repository.workspace = true
+edition.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+build = "build.rs"
+
+[dependencies]
+## Crates project
+tilder-core = { workspace = true }
+
+## Crates vendors
+clap.workspace = true
+
+# Build dependencies (build.rs)
+[build-dependencies]
+toml = "0.8"
+serde = { workspace = true }
