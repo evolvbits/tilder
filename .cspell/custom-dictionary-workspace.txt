@@ -4,5 +4,17 @@ canin
 williamcanin
 evolv
 evolvbits
+endfor
+serde
+prinln
+userprofile
+postprocessors
 keyserver
 openpgp
+codegen
+sublicensable
+doas
+rustup
+tlsv1
+rustc
+clippy
