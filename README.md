@@ -40,19 +40,16 @@ With `Tilder`, you can:
 
 ## About this repository
 
-This repository distributes **official `Tilder` binary releases only**.
-
-The `Tilder` source code is proprietary and maintained by `EvolvBits` in a private repository.
 This public repository exists to:
 
-- Provide verified and reproducible binary releases
+- Provide verified and reproducible source code and binary versions
 - Serve as the official download location
-- Published the `Tilder` logo for use on the official EvolvBits website
-- Receive user feedback, issues, and suggestions
+- Publish the `Tilder` logo for use on the official EvolvBits website
+- Receive feedback, bug reports, and suggestions from users
 
-All binaries published here are automatically built through a controlled CI pipeline to ensure authenticity and integrity.
+All binaries published here are automatically compiled through a controlled CI pipeline to ensure authenticity and integrity.
 
-For full documentation and usage guides, visit the official pages below.
+For complete documentation and usage guides, please visit the official pages below.
 
 ## Official page
 
