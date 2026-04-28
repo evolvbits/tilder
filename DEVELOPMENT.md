@@ -36,9 +36,9 @@ cargo install cargo-run-bin
 Clone the repository and build the project. The first build will automatically compile `git-cliff` inside `target/bin`:
 
 ```bash
-git clone https://github.com/EvolvBits/tilder.git
+git clone https://github.com/evolvbits/tilder.git
 cd tilder
-cargo build
+cargo build --release
 ```
 
 ---
@@ -117,7 +117,7 @@ Tilder binaries are distributed via **GitHub Releases**.
 
 After pushing the tag, create a new release on GitHub:
 
-1. Go to [github.com/EvolvBits/tilder/releases](https://github.com/EvolvBits/tilder/releases)
+1. Go to [github.com/evolvbits/tilder/releases](https://github.com/evolvbits/tilder/releases)
 2. Click **Draft a new release**
 3. Select the tag `vX.X.X` you just pushed
 4. Paste the relevant section from `CHANGELOG.md` as the release description
@@ -149,7 +149,7 @@ tilder/
 
 | Command                 | Description                         |
 |-------------------------|-------------------------------------|
-| `cargo build`           | Debug build + generates changelog   |
+| `cargo build`           | Debug build                         |
 | `cargo build --release` | Release build + generates changelog |
 | `cargo test`            | Run all tests                       |
 | `cargo clippy`          | Lint the code                       |
