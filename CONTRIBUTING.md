@@ -72,7 +72,7 @@ We expect all contributors to maintain a respectful and collaborative environmen
 
 ## Questions?
 
-Open an issue with the label `question` or contact the organization on GitHub: [github.com/evolvBits](https://github.com/evolvBits).
+Open an issue with the label `question` or contact the organization on GitHub: [github.com/evolvbits](https://github.com/evolvbits).
 
 ---
 

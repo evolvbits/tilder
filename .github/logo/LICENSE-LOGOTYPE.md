@@ -3,7 +3,7 @@
 Copyright (c) 2026 EvolvBits. All rights reserved.
 
 This folder contains the official logotype, logo variations, and brand assets of **Tilder**,
-a project maintained by [EvolvBits](https://github.com/evolvBits).
+a project maintained by [EvolvBits](https://github.com/evolvbits).
 
 These assets are the **exclusive property of EvolvBits** and are **not open source**.
 They are not covered by the Elastic License 2.0 that governs the Tilder source code.
@@ -42,7 +42,7 @@ You MAY NOT, without prior written permission from EvolvBits:
 ## Requesting permission
 
 If you wish to use the Tilder logotype outside of the permitted cases above,
-please open an issue at [github.com/evolvBits/tilder](https://github.com/evolvBits/tilder)
+please open an issue at [github.com/evolvbits/tilder](https://github.com/evolvbits/tilder)
 with the label `brand-request`, describing your intended use.
 
 EvolvBits reserves the right to grant or deny permission at its sole discretion.
