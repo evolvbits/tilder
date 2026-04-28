@@ -1,5 +1,5 @@
 [package]
-name = "tilder-core"
+name = "tilder_core"
 version.workspace = true
 description.workspace = true
 repository.workspace = true

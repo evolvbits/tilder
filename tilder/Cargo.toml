@@ -10,7 +10,7 @@ build = "build.rs"
 
 [dependencies]
 ## Crates project
-tilder-core = { workspace = true }
+tilder_core = { workspace = true }
 
 ## Crates vendors
 clap.workspace = true

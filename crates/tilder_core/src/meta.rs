@@ -53,14 +53,3 @@ pub fn credits_string(info: &CreditsInfo) -> String {
     info.site
   )
 }
-
-// /// Get version string (for potential future use)
-// #[allow(dead_code)]
-// pub fn version_string() -> String {
-//   format!(
-//     "{} v{} (build: {})",
-//     constants::APP_NAME.capitalize(),
-//     constants::APP_VERSION,
-//     constants::BUILD_PROFILE
-//   )
-// }
