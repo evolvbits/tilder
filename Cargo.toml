@@ -20,7 +20,7 @@ copyright = "© 2026 EvolvBits. All rights reserved."
 maintainer = "EvolvBits"
 
 [workspace.dependencies]
-tilder_core = { path = "crates/tilder_core" }
+tilder-core = { path = "crates/tilder-core" }
 clap = { version = "=4.5.4", features = ["derive"] }
 anyhow = "1.0.101"
 serde = { version = "1", features = ["derive"] }

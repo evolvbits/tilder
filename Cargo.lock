@@ -243,12 +243,12 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "serde",
- "tilder_core",
+ "tilder-core",
  "toml",
 ]
 
 [[package]]
-name = "tilder_core"
+name = "tilder-core"
 version = "0.1.0"
 dependencies = [
  "serde",
