@@ -10,7 +10,7 @@
 <br><br><br>
 
 <p align="center">
-  <img src=".github/logo/tilder.svg" alt="tilder" width="180"/>
+  <img src=".github/brand/logo-text/tilder-variation-3.svg" alt="tilder" width="180"/>
 </p>
 
 <h1 align="center">Declare your home.</h1>
