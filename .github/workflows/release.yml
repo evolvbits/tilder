@@ -1,0 +1,139 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "CHANGELOG.md"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies
+        run: |
+          cargo install git-cliff
+          sudo apt-get update && sudo apt-get install -y jq gnupg
+
+      - name: Get version from Cargo.toml
+        id: version
+        run: |
+          VERSION=$(cargo metadata --no-deps --format-version=1 \
+            | jq -r '.packages[] | select(.name=="tilder") | .version')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      # [WARNING !] avoids duplicate releases
+      - name: Check if tag exists
+        id: tag_check
+        run: |
+          if git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Stop if tag exists
+        if: steps.tag_check.outputs.exists == 'true'
+        run: exit 0
+
+      - name: Generate full changelog
+        run: git cliff --config cliff.toml --output CHANGELOG.md
+
+      - name: Commit changelog
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add CHANGELOG.md
+          git commit -m "chore(release): update changelog for v${{ steps.version.outputs.version }}" || echo "No changes"
+          git push origin main
+
+      - name: Create tag
+        run: |
+          git tag ${{ steps.version.outputs.tag }}
+          git push origin ${{ steps.version.outputs.tag }}
+
+      # Generate changelog for the latest release.
+      - name: Generate release notes
+        run: git cliff --latest --config cliff.toml > CHANGELOG_RELEASE.md
+
+      - name: Load CHANGELOG_RELEASE.md
+        run: |
+          echo "CHANGELOG_RELEASE<<EOF" >> $GITHUB_ENV
+          cat CHANGELOG_RELEASE.md >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Build
+        run: |
+          cargo build --release
+          mkdir dist
+          cp target/release/tilder dist/tilder-${{ steps.version.outputs.version }}-linux-x86_64
+
+      - name: Generate SHA256SUMS
+        run: |
+          cd dist
+          sha256sum * > SHA256SUMS
+
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+
+      - name: Sign SHA256SUMS
+        run: |
+          cd dist
+          echo "${{ secrets.GPG_PASSPHRASE }}" | \
+          gpg --batch --yes --pinentry-mode loopback \
+              --passphrase-fd 0 \
+              --armor --detach-sign \
+              --local-user "${{ secrets.GPG_KEY_ID }}" \
+              SHA256SUMS
+
+      # Create a release containing only the latest version
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          body: |
+            # Release ${{ steps.version.outputs.tag }}
+
+            ## Files
+
+            - Linux binary
+            - SHA256SUMS
+            - GPG signature (SHA256SUMS.asc)
+
+            ## Verification
+
+            ```bash
+            sha256sum -c SHA256SUMS
+            gpg --verify SHA256SUMS.asc SHA256SUMS
+            ```
+
+            ## Changelog
+
+            ${{ env.CHANGELOG_RELEASE }}
+
+          files: |
+            dist/*

@@ -1,0 +1,75 @@
+name: AUR Publish
+
+on:
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
+
+jobs:
+  aur:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    container:
+      image: archlinux:latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          pacman -Sy --noconfirm \
+            git \
+            openssh \
+            base-devel \
+            pacman-contrib \
+            jq
+
+      - name: Setup SSH for AUR
+        run: |
+          mkdir -p ~/.ssh
+          echo "${AUR_SSH_PRIVATE_KEY}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          ssh-keyscan aur.archlinux.org >> ~/.ssh/known_hosts
+        env:
+          AUR_SSH_PRIVATE_KEY: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+
+      - name: Clone AUR repo
+        run: |
+          git clone ssh://aur@aur.archlinux.org/${{ secrets.AUR_PACKAGE_NAME }}.git aur
+
+      - name: Get version from GitHub release
+        id: version
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update PKGBUILD
+        run: |
+          cd aur
+
+          VERSION=${{ steps.version.outputs.version }}
+
+          echo "Updating to version $VERSION"
+
+          sed -i "s/pkgver=.*/pkgver=$VERSION/" PKGBUILD
+          sed -i "s/pkgrel=.*/pkgrel=1/" PKGBUILD
+
+          # Updates checksums automatically.
+          updpkgsums
+
+          # Update SRCINFO
+          makepkg --printsrcinfo > .SRCINFO
+
+      - name: Commit and push
+        run: |
+          cd aur
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add PKGBUILD .SRCINFO
+
+          git commit -m "chore(release): update to v${{ steps.version.outputs.version }}" || echo "No changes"
+
+          git push
