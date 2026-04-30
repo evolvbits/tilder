@@ -22,29 +22,26 @@ struct Cli {
   #[arg(help = "", num_args = 1..)]
   targets: Vec<String>,
 
-  #[arg(short = 'c', long = "credits", action = ArgAction::SetTrue, help = "show credits")]
+  #[arg(short = 'c', long = "credits", action = ArgAction::SetTrue, help = "Show credits")]
   credits: bool,
 }
-
-// tilder --credits   → nome, version, authors, maintainer
-// tilder --info      → repositories, commit, date
-// tilder --legal     → copyright, site, license
 
 fn main() {
   let cli = Cli::parse();
   if cli.credits {
     let credits_info = CreditsInfo {
       name: &"tilder".capitalize(),
-      version: env!("CARGO_PKG_VERSION"),
-      maintainer: env!("PROJECT_MAINTAINER"),
-      repository: env!("CARGO_PKG_REPOSITORY"),
-      commit: env!("GIT_COMMIT"),
-      date: env!("GIT_DATE"),
-      license: env!("APP_COPYRIGHT"),
-      site: env!("PROJECT_SITE"),
+      version: constants::APP_VERSION,
+      maintainer: constants::APP_MAINTAINER,
+      repository: constants::APP_REPOSITORY,
+      license: constants::APP_LICENSE,
+      commit: constants::APP_COMMIT,
+      date: constants::APP_LAST_UPDATE,
+      copyright: constants::APP_COPYRIGHT,
+      homepage: constants::APP_HOMEPAGE,
     };
     println!("{}", &credits_string(&credits_info));
     return;
   }
-  println!("tilder: coming soon!");
+  println!("{}: Coming Soon!", constants::APP_NAME.capitalize());
 }
