@@ -1,9 +1,9 @@
 // (c) 2026 EvolvBits. All rights reserved.
 
-use std::{env, fs, path::Path, process::Command};
+use std::{env::var, fs, path::Path, process::Command};
 
 fn git_commit() -> String {
-  Command::new("git")
+  let hash = Command::new("git")
     .args(["rev-parse", "HEAD"])
     .output()
     .ok()
@@ -14,7 +14,10 @@ fn git_commit() -> String {
         None
       }
     })
-    .unwrap_or_else(|| "unknown".to_string())
+    .unwrap_or_else(|| "unknown".to_string());
+
+  // I only take the first 8 characters of the commit hash.
+  hash[..8].to_string()
 }
 
 fn git_date() -> String {
@@ -30,39 +33,9 @@ fn git_date() -> String {
     .unwrap_or_else(|| "unknown".into())
 }
 
-fn git_cliff() {
-  let profile = env::var("PROFILE").unwrap_or_else(|_| "debug".to_string());
-
-  if profile == "release" {
-    // Notify the role to rebuild if the root Cargo.toml changes.
-    println!("cargo:rerun-if-changed=../Cargo.toml");
-
-    let version = env!("CARGO_PKG_VERSION");
-
-    // We execute the command by explicitly pointing to the files in the root directory. (../)
-    let status = Command::new("git-cliff")
-      .args([
-        "--offline",
-        "--config",
-        "cliff.toml", // Path to the config in the root directory.
-        "--output",
-        "CHANGELOG.md",
-      ])
-      .current_dir("..") // FORCE the command to run in the workspace root.
-      .status();
-
-    match status {
-      Ok(s) if s.success() => println!("cargo:warning=CHANGELOG.md updated to v{}", version),
-      _ => {
-        println!("cargo:warning=Failed to update CHANGELOG.md. Check if git-cliff is working.")
-      }
-    }
-  }
-}
-
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn metadata(key: &str) -> Result<String, Box<dyn std::error::Error>> {
   // CARGO_MANIFEST_DIR points to where the build.rs file is located (the root of the workspace).
-  let manifest_dir = std::env::var("CARGO_MANIFEST_DIR")?;
+  let manifest_dir = var("CARGO_MANIFEST_DIR")?;
 
   // Go up one level to get the Cargo.toml file from the workspace.
   let workspace_cargo_toml = Path::new(&manifest_dir)
@@ -72,44 +45,49 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
   let content = fs::read_to_string(&workspace_cargo_toml)?;
   let toml: toml::Value = content.parse()?;
-
-  let copyright = toml
+  let value = toml
     .get("workspace")
     .and_then(|w| w.get("metadata"))
-    .and_then(|m| m.get("copyright"))
+    .and_then(|w| w.get("tilder"))
+    .and_then(|m| m.get(key))
     .and_then(|c| c.as_str())
     .unwrap_or("Unknown");
 
-  println!("cargo:rustc-env=APP_COPYRIGHT={}", copyright);
+  Ok(value.to_string())
+}
 
-  let maintainer = toml
-    .get("workspace")
-    .and_then(|w| w.get("metadata"))
-    .and_then(|m| m.get("maintainer"))
-    .and_then(|c| c.as_str())
-    .unwrap_or("Unknown");
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+  println!(
+    "cargo:rustc-env=APP_COPYRIGHT={}",
+    metadata("copyright").unwrap_or_else(|_| "unknown".into())
+  );
 
-  println!("cargo:rustc-env=PROJECT_MAINTAINER={}", maintainer);
+  println!(
+    "cargo:rustc-env=APP_MAINTAINER={}",
+    metadata("maintainer").unwrap_or_else(|_| "unknown".into())
+  );
 
-  let site = toml
-    .get("workspace")
-    .and_then(|w| w.get("metadata"))
-    .and_then(|m| m.get("site"))
-    .and_then(|c| c.as_str())
-    .unwrap_or("Unknown");
+  println!(
+    "cargo:rustc-env=APP_DOCUMENTATION={}",
+    metadata("documentation").unwrap_or_else(|_| "unknown".into())
+  );
 
-  println!("cargo:rustc-env=PROJECT_SITE={}", site);
+  println!(
+    "cargo:rustc-env=APP_KEYWORDS={}",
+    metadata("keywords").unwrap_or_else(|_| "unknown".into())
+  );
 
-  let commit = git_commit();
-  println!("cargo:rustc-env=GIT_COMMIT={}", commit);
+  println!(
+    "cargo:rustc-env=APP_CATEGORIES={}",
+    metadata("categories").unwrap_or_else(|_| "unknown".into())
+  );
 
-  let commit_date = git_date();
-  println!("cargo:rustc-env=GIT_DATE={}", commit_date);
+  println!("cargo:rustc-env=APP_COMMIT={}", git_commit());
 
-  let profile = std::env::var("PROFILE").unwrap_or_else(|_| "unknown".into());
+  println!("cargo:rustc-env=APP_LAST_UPDATE={}", git_date());
+
+  let profile = var("PROFILE").unwrap_or_else(|_| "unknown".into());
   println!("cargo:rustc-env=BUILD_PROFILE={}", profile);
-
-  git_cliff();
 
   Ok(())
 }
