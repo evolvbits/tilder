@@ -8,7 +8,7 @@ pub fn authors() -> String {
     .split(':')
     .map(|a| {
       let restored = a.trim().replace("\x00PROTO\x00", "://");
-      format!("- {}", restored)
+      format!("  - {}", restored)
     })
     .collect::<Vec<_>>()
     .join("\n")
@@ -19,37 +19,38 @@ pub struct CreditsInfo<'a> {
   pub version: &'a str,
   pub maintainer: &'a str,
   pub repository: &'a str,
+  pub license: &'a str,
   pub commit: &'a str,
   pub date: &'a str,
-  pub license: &'a str,
-  pub site: &'a str,
+  pub copyright: &'a str,
+  pub homepage: &'a str,
 }
 
 /// Get full credits string
 pub fn credits_string(info: &CreditsInfo) -> String {
-  let sep: String = "-".repeat(50);
+  let sep: String = "-".repeat(55);
   let lst_authors = authors();
+  let indentation: String = " ".repeat(2);
 
   format!(
     "\n{} - Version {}\n\n\
-        Credits:\n\n\
-        Authors:\n{lst_authors}\n\
-        Maintainer: {}\n\n\
-        Info:\n\n\
-        Code repository: {}\n\
-        Commit hash: {}\n\
-        Commit date: {}\n\n\
+        Credits:\n  Authors:\n{indentation}{lst_authors}\n{indentation}Maintainer: {}\n\n\
+        Repository: {}\n\
+        License: {}\n\
+        Commit: {}\n\
+        Last update: {}\n\n\
         {sep}\n\
         {}\n\
-        Site: {}\n\
+        Homepage: {}\n\
         {sep}",
     info.name.capitalize(),
     info.version,
     info.maintainer,
     info.repository,
+    info.license,
     info.commit,
     info.date,
-    info.license,
-    info.site
+    info.copyright,
+    info.homepage
   )
 }
