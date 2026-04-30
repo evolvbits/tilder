@@ -7,17 +7,22 @@ members = ["crates/*", "tilder"]
 git-cliff = { version = "2.12.0" }
 
 [workspace.package]
-description = "Declare your home."
-repository = "https://github.com/evolvbits/tilder"
 version = "0.1.0"
 authors = ["William <https://williamcanin.github.io>"]
 edition = "2024"
-rust-version = "1.94.1"
+homepage = "https://evolvbits.github.io/products/tilder/"
+license = "Elastic License 2.0"
+readme = "README.md"
+repository = "https://github.com/evolvbits/tilder"
+rust-version = "1.90.0"
+description = "Declarative CLI for managing HOME directory configs on Linux."
 
-[workspace.metadata]
-site = "https://evolvbits.github.io/products/tilder/"
+[workspace.metadata.tilder]
+keywords = ["CLI", "dotfiles", "synchronization", "declarative", "reproducible"]
+categories = ["command-line-utilities"]
+documentation = "https://evolvbits.github.io/products/tilder/documentation/"
+maintainer = "EvolvBits <https://evolvbits.github.io>"
 copyright = "© 2026 EvolvBits. All rights reserved."
-maintainer = "EvolvBits"
 
 [workspace.dependencies]
 tilder-core = { path = "crates/tilder-core" }
