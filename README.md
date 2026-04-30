@@ -13,66 +13,7 @@
   <img src=".github/brand/logo-text/compact/tilder-variation-3.svg" alt="tilder" width="180"/>
 </p>
 
-<h1 align="center">Declare your home.</h1>
+<h2 align="center">Declarative CLI for managing your Linux HOME directory.</h2>
 
 [![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/evolvbits/tilder/releases)
 ![Rust](https://img.shields.io/badge/Rust-built-orange)
-
-## Introduction
-
-***Manage and synchronize everything in your `$HOME`. A declarative home-state manager for your `$HOME`.***
-
-`Tilder` lets you describe the desired state of everything inside your home directory and makes your system converge to it.
-
-Instead of manually copying dotfiles, syncing folders, or remembering how your environment was set up, you declare how your `$HOME` should be, and `Tilder` takes care of enforcing that state.
-
-This goes beyond traditional dotfile managers. `Tilder` is designed to treat your home directory as a **reproducible, synchronized, declarative environment**.
-
-With `Tilder`, you can:
-
-- Define the structure and contents of your `$HOME`
-- Keep configurations, files, and directories in sync across machines
-- Recreate your entire user environment reliably
-- Eliminate configuration drift
-- Manage more than dotfiles — manage your **home state**
-
-`Tilder` turns your `$HOME` into something predictable, portable, and reproducible.
-
-## About this repository
-
-This public repository exists to:
-
-- Provide verified and reproducible source code and binary versions
-- Serve as the official download location
-- Publish the `Tilder` logo for use on the official EvolvBits website
-- Receive feedback, bug reports, and suggestions from users
-
-All binaries published here are automatically compiled through a controlled CI pipeline to ensure authenticity and integrity.
-
-For complete documentation and usage guides, please visit the official pages below.
-
-## Official page
-
-[https://evolvbits.github.io/products/tilder/](https://evolvbits.github.io/products/tilder/)
-
-## Documentation
-
-[https://evolvbits.github.io/products/tilder/documentation/](https://evolvbits.github.io/products/tilder/documentation/)
-
-## Verifying Releases
-
-All binaries are signed and can be verified.
-See [SECURITY.md](SECURITY.md) for full verification instructions.
-
-## Community
-
-- [Contributing](CONTRIBUTING.md)
-- [Development](DEVELOPMENT.md)
-- [License Third-Party](LICENSE-THIRD-PARTY.md)
-- [License](LICENSE)
-
----
-
-© [Evolvbits](https://evolvbits.github.io) - All rights reserved.
-
-<!-- "Tilder is source-available under the Elastic License 2.0. You may use, modify and contribute freely, but you may not sell or redistribute Tilder as a product or service." -->
